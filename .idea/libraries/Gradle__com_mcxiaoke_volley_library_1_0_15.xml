@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.mcxiaoke.volley:library-1.0.15">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/library-1.0.15.aar/ded48b4790015e9e7e0a2828224de34a/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/library-1.0.15.aar/ded48b4790015e9e7e0a2828224de34a/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mcxiaoke.volley/library/1.0.15/3797c1c90ff48ddb1572fe757a86383e1bbb3519/library-1.0.15-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

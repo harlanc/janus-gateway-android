@@ -8,7 +8,7 @@ import org.json.JSONObject;
 import org.webrtc.MediaStream;
 import org.webrtc.PeerConnection;
 import org.webrtc.VideoRenderer;
-import org.webrtc.VideoRendererGui;
+//import org.webrtc.VideoRendererGui;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -166,7 +166,7 @@ public class EchoTest {
         @Override
         public void onLocalStream(MediaStream stream) {
             stream.videoTracks.get(0).addRenderer(new VideoRenderer(localRender));
-            VideoRendererGui.update(localRender, 0, 0, 25, 25, VideoRendererGui.ScalingType.SCALE_ASPECT_FILL, false);
+           // VideoRendererGui.update(localRender, 0, 0, 25, 25, VideoRendererGui.ScalingType.SCALE_ASPECT_FILL, false);
         }
 
         @Override
@@ -175,8 +175,8 @@ public class EchoTest {
             if(stream.videoTracks.get(0).enabled())
                 Log.d("JANUSCLIENT", "video tracks enabled");
             stream.videoTracks.get(0).addRenderer(new VideoRenderer(remoteRender));
-            VideoRendererGui.update(remoteRender, 0, 0, 25, 25, VideoRendererGui.ScalingType.SCALE_ASPECT_FILL, true);
-            VideoRendererGui.update(localRender, 72, 72, 25, 25, VideoRendererGui.ScalingType.SCALE_ASPECT_FILL, false);
+           // VideoRendererGui.update(remoteRender, 0, 0, 25, 25, VideoRendererGui.ScalingType.SCALE_ASPECT_FILL, true);
+          //  VideoRendererGui.update(localRender, 72, 72, 25, 25, VideoRendererGui.ScalingType.SCALE_ASPECT_FILL, false);
         }
 
         @Override

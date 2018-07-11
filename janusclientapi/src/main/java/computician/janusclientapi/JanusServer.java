@@ -106,7 +106,7 @@ public class JanusServer implements Runnable, IJanusMessageObserver, IJanusSessi
     }
 
     public boolean initializeMediaContext(Context context, boolean audio, boolean video, boolean videoHwAcceleration, EGLContext eglContext) {
-        if (!PeerConnectionFactory.initializeAndroidGlobals(context, audio, video, videoHwAcceleration, eglContext))
+        if (!PeerConnectionFactory.initializeAndroidGlobals(context, audio, video, videoHwAcceleration,eglContext))
             return false;
         peerConnectionFactoryInitialized = true;
         return true;

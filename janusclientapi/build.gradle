@@ -1,14 +1,15 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    compileSdkVersion 26
+    buildToolsVersion '27.0.3'
 
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 22
+        minSdkVersion 26
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -28,9 +29,28 @@ android {
 repositories {
     mavenCentral()
 }
-dependencies {
-    compile 'com.android.support:appcompat-v7:22.1.1'
-    compile 'io.pristine:libjingle:9127@aar'
-    compile 'com.koushikdutta.async:androidasync:2.+'
-    compile 'com.mcxiaoke.volley:library:1.0.15@aar'
+
+allprojects {
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+        }
+    }
 }
+dependencies {
+
+    api 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'io.pristine:libjingle:9127@aar'
+    implementation 'com.koushikdutta.async:androidasync:2.+'
+    implementation 'com.mcxiaoke.volley:library:1.0.15@aar'
+    //implementation 'org.webrtc:google-webrtc:1.0.+'
+}
+
+//task makeJar(type: Copy) {
+//    //delete 'Janusclientapi.jar'
+//    from( 'build/intermediates/bundles/release ')
+//    into( 'build/libs')
+//    include('classes.jar')
+//    rename('classes.jar', 'Janusclientapi.jar')
+//}
+//makeJar.dependsOn(build)

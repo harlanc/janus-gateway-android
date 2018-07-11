@@ -12,7 +12,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import org.webrtc.VideoRenderer;
-import org.webrtc.VideoRendererGui;
+//import org.webrtc.VideoRendererGui;
 
 public class JanusActivity extends Activity {
     private static final boolean AUTO_HIDE = true;
@@ -22,7 +22,7 @@ public class JanusActivity extends Activity {
     private VideoRenderer.Callbacks remoteRender;
     private EchoTest echoTest;
     private VideoRoomTest videoRoomTest;
-
+    private AudioRoomTest audioRoomTest;
     /**
      * If {@link #AUTO_HIDE} is set, the number of milliseconds to wait after
      * user interaction before hiding the system UI.
@@ -53,10 +53,20 @@ public class JanusActivity extends Activity {
 
         private void init() {
             try {
-                EGLContext con = VideoRendererGui.getEGLContext();
-                echoTest = new EchoTest(localRender, remoteRender);
-                echoTest.initializeMediaContext(JanusActivity.this, true, true, true, con);
-                echoTest.Start();
+           //     EGLContext con = VideoRendererGui.getEGLContext();
+//                echoTest = new EchoTest(localRender, remoteRender);
+//                echoTest.initializeMediaContext(JanusActivity.this, true, true, true, con);
+//                echoTest.Start();
+
+//               VideoRenderer.Callbacks[] callbacks = new VideoRenderer.Callbacks[1] ;
+//               callbacks[0] = remoteRender;
+//               videoRoomTest = new VideoRoomTest(localRender,callbacks);
+//                videoRoomTest.initializeMediaContext(JanusActivity.this, true, true, true, con);
+//                 videoRoomTest.Start();
+
+                audioRoomTest = new AudioRoomTest();
+                audioRoomTest.initializeMediaContext(JanusActivity.this, true, false, false, null);
+                audioRoomTest.Start();
 
             } catch (Exception ex) {
                 Log.e("computician.janusclient", ex.getMessage());
@@ -77,9 +87,9 @@ public class JanusActivity extends Activity {
         vsv = (GLSurfaceView) findViewById(R.id.glview);
         vsv.setPreserveEGLContextOnPause(true);
         vsv.setKeepScreenOn(true);
-        VideoRendererGui.setView(vsv, new MyInit());
+      //  VideoRendererGui.setView(vsv, new MyInit());
 
-        localRender = VideoRendererGui.create(72, 72, 25, 25, VideoRendererGui.ScalingType.SCALE_ASPECT_FILL, false);
-        remoteRender = VideoRendererGui.create(0, 0, 25, 25, VideoRendererGui.ScalingType.SCALE_ASPECT_FILL, true);
+      //  localRender = VideoRendererGui.create(72, 72, 25, 25, VideoRendererGui.ScalingType.SCALE_ASPECT_FILL, false);
+      //  remoteRender = VideoRendererGui.create(0, 0, 25, 25, VideoRendererGui.ScalingType.SCALE_ASPECT_FILL, true);
     }
 }
